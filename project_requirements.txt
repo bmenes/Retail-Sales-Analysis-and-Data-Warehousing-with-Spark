@@ -1,0 +1,81 @@
+"Solve the following business needs using the `https://github.com/erkansirin78/datasets/tree/master/retail_db` data sets with Spark dataframe. 
+There are 6 csv files in `retail_db`. Information such as orders being canceled and waiting for payment is in `orders.csv`. 
+Invoice details are in `order_items.csv`.â€ 
+
+### 1. How many distinct `orderItemOrderId` in `order_items` .
+
+### 2. Find the row counts of `orders` and `order_items` tables.
+
+### 3. Write the most canceled (descending order) products in terms of total sales amount to the local disk in 'parquet' format.
+```     
+Expected result:
+
+|:-:|:---------------------------------------------:|:----------:|
+| 0 | Field & Stream Sportsman 16 Gun Fire Safe     | 134393.28  |
+| 1 | Perfect Fitness Perfect Rip Deck              | 85785.70   |
+| 2 | Nike Men's Free 5.0+ Running Shoe             | 80691.93   |
+| 3 | Diamondback Women's Serene Classic Comfort Bi | 80094.66   |
+| 4 | Pelican Sunstream 100 Kayak                   | 66196.69   |
+| 5 | Nike Men's Dri-FIT Victory Golf Polo          | 65750.00   |
+| 6 | Nike Men's CJ Elite 2 TD Football Cleat       | 60705.33   |
+| 7 | O'Brien Men's Neoprene Life Vest              | 58126.74   |
+| 8 | Under Armour Girls' Toddler Spine Surge Runni | 26153.46   |
+| 9 | LIJA Women's Eyelet Sleeveless Golf Polo      | 2145.00    |
+```
+### 4. Write the most canceled (descending order) categories in terms of total sales amount to the local disk in 'parquet' format.
+```
+ Expedted result:
+
+|:-:|:----------------------------------------:|:----------:|
+| 0 | Fishing                                  | 134393.28  |
+| 1 | Cleats                                   | 85785.70   |
+| 2 | Cardio Equipment                         | 81351.93   |
+| 3 | Camping & Hiking                         | 80094.66   |
+| 4 | Water Sports                             | 66196.69   |
+| 5 | Women's Apparel                          | 65750.00   |
+| 6 | Men's Footwear                           | 60705.33   |
+| 7 | Indoor/Outdoor Games                     | 58126.74   |
+| 8 | Shop By Sport                            | 27423.44   |
+| 9 | Electronics                              | 5685.50    |
+```
+
+### 5. In which month of which year (Turkish) was the highest total sales?
+
+### 6. On which day of the week (Turkish) was the highest total sales?
+
+### 7. 
+Create the largest table possible from all these tables and write it to a table named `retail_all` in the postgresql `test1` database.
+- Table schema
+```text
+root
+ |-- orderItemName: integer (nullable = true)
+ |-- orderItemOrderId: integer (nullable = true)
+ |-- orderItemProductId: integer (nullable = true)
+ |-- orderItemQuantity: integer (nullable = true)
+ |-- orderItemSubTotal: double (nullable = true)
+ |-- orderItemProductPrice: double (nullable = true)
+ |-- orderId: integer (nullable = true)
+ |-- orderDate: timestamp (nullable = true)
+ |-- orderCustomerId: integer (nullable = true)
+ |-- orderStatus: string (nullable = true)
+ |-- customerId: integer (nullable = true)
+ |-- customerFName: string (nullable = true)
+ |-- customerLName: string (nullable = true)
+ |-- customerEmail: string (nullable = true)
+ |-- customerPassword: string (nullable = true)
+ |-- customerStreet: string (nullable = true)
+ |-- customerCity: string (nullable = true)
+ |-- customerState: string (nullable = true)
+ |-- customerZipcode: integer (nullable = true)
+ |-- productId: integer (nullable = true)
+ |-- productCategoryId: integer (nullable = true)
+ |-- productName: string (nullable = true)
+ |-- productDescription: string (nullable = true)
+ |-- productPrice: double (nullable = true)
+ |-- productImage: string (nullable = true)
+ |-- categoryId: integer (nullable = true)
+ |-- categoryDepartmentId: integer (nullable = true)
+ |-- categoryName: string (nullable = true)
+ |-- departmentId: integer (nullable = true)
+ |-- departmentName: string (nullable = true)
+```
